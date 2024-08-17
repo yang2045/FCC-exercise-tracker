@@ -1,0 +1,22 @@
+<h1>message</h1>
+<p class="message">this is the message</p>
+<button id="getMessage">click</button>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function () {
+        document.getElementById('getMessage').onclick=
+        function(){
+           fetch('cats.json')
+           .then(response=>response.json())
+           .then(data=>{
+            document.getElementsByClassName('message')[0].innerHTML=JSON.stringify(data)
+            
+            
+           }) 
+
+
+        }
+        
+    })
+</script>

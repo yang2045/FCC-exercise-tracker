@@ -1,0 +1,27 @@
+<h1>Cat</h1>
+<p class="message"> this</p>
+<button id="getMessage">click</button>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('getMessage').onclick=
+  function(){
+const req = new XMLHttpRequest()
+req.open('GET','cats.json',true)
+req.send()
+req.onload= function(){
+  const json = JSON.parse(req.responseText)
+  let html =''
+  json.forEach(function(val){
+    html += '<div>'
+
+      html += '<img src= "'+val.imageLink+'"  '+' alt="'+val.alterText+' ">'
+html+='</div>'
+
+  })
+  document.getElementsByClassName('message')[0].innerHTML = html
+}
+  }
+})
+
+</script>
